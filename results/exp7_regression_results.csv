@@ -1,0 +1,4 @@
+Model,RMSE (days),MAE (days),R²
+Random Forest,6.2,2.48,0.994
+XGBoost,6.0,2.45,0.9944
+LightGBM,5.71,2.33,0.9949

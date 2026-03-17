@@ -1,0 +1,8 @@
+Source,Model,F1,AUC
+Matzka (2020) — original paper,Decision Tree,0.854,0.91
+Matzka (2020) — original paper,Random Forest,0.882,0.954
+Zhang et al. (2022),XGBoost,0.901,0.971
+This work,Logistic Reg.,0.571,0.9
+This work,Random Forest,0.754,0.971
+This work,XGBoost,0.768,0.974
+This work,LightGBM,0.814,0.973

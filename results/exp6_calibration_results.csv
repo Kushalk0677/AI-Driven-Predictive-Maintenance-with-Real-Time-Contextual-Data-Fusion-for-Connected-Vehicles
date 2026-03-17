@@ -1,0 +1,3 @@
+Model,Brier Score
+LightGBM (uncalibrated),0.082
+LightGBM + Platt Scaling,0.0801

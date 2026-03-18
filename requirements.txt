@@ -7,5 +7,6 @@ xgboost>=1.7
 shap>=0.42
 matplotlib>=3.6
 openpyxl>=3.1
+requests>=2.28
 obd>=0.7
 pyserial>=3.5

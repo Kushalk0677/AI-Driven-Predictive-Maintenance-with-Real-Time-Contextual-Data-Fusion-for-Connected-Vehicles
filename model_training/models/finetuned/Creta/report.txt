@@ -1,0 +1,9 @@
+Car: Creta
+Date: 2026-04-03 21:20:19.054924
+Drives: 7  (with service resets: 0)
+Regressor: Ridge
+days_to_service range: 95 – 234 days
+
+Training metrics (reference):
+  Classifier  F1: 1.000  AUC: 0.500
+  Regressor  MAE: 15.6 days  R²: 0.7665

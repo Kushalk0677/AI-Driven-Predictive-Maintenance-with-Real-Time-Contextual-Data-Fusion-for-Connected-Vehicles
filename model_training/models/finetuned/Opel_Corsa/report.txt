@@ -1,0 +1,9 @@
+Car: Opel Corsa
+Date: 2026-04-03 21:20:32.768888
+Drives: 244  (with service resets: 4)
+Regressor: LightGBM
+days_to_service range: 1 – 133 days
+
+Training metrics (reference):
+  Classifier  F1: 0.987  AUC: 1.000
+  Regressor  MAE: 10.4 days  R²: 0.8546

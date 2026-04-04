@@ -1,0 +1,3 @@
+service_date,service_type,brake_thickness_after,tire_tread_after,oil_degradation_after,battery_health_after,notes
+2026-02-19,oil_change,,,0.02,,Oil change detected — oil_degradation dropped from 0.876 to 0.020 overnight (mileage ~69009 km)
+2026-02-19,battery_replacement,,,,0.84,Battery replacement detected — battery_health jumped from 0.740 to 0.836 on same date

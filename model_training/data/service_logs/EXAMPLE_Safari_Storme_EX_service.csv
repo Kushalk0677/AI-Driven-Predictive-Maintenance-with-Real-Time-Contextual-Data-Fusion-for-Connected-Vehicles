@@ -1,0 +1,6 @@
+service_date,service_type,brake_thickness_after,tire_tread_after,oil_degradation_after,battery_health_after,notes
+2026-01-15,oil_change,,,0.05,,Regular oil change at 50000km
+2026-02-20,brake_replacement,9.0,,,,"New brake pads fitted at garage"
+2026-03-10,full_service,9.0,7.5,0.05,,"Annual dealer service"
+2026-04-01,tire_replacement,,7.5,,,"Two front tires replaced"
+2026-04-15,battery_replacement,,,,0.92,"New battery installed"

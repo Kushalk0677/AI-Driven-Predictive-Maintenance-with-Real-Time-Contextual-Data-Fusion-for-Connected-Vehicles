@@ -1,0 +1,3 @@
+service_date,service_type,brake_thickness_after,tire_tread_after,oil_degradation_after,battery_health_after,notes
+2017-08-11,full_service,9.0,7.5,0.05,,Post-summer workshop full service during long gap in logs
+2018-03-24,oil_change,,,0.05,,Routine oil service before late-March / April drives

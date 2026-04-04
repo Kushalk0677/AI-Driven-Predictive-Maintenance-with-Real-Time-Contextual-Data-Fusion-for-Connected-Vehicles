@@ -1,0 +1,3 @@
+service_date,service_type,brake_thickness_after,tire_tread_after,oil_degradation_after,battery_health_after,notes
+2025-11-20,oil_change,,,0.05,,Regular oil change at ~83084 km. Filter replaced. Visual brake inspection OK.
+2026-01-22,full_service,6.4,4.8,0.05,0.75,"Annual dealer full service at ~86360 km. Oil & filter, air filter, coolant top-up, brake inspection, tyre rotation."

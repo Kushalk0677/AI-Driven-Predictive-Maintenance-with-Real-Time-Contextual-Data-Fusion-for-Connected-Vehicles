@@ -1,0 +1,9 @@
+Car: Seat_Leon
+Date: 2026-04-03 21:20:59.855463
+Drives: 81  (with service resets: 2)
+Regressor: LightGBM
+days_to_service range: 3 – 66 days
+
+Training metrics (reference):
+  Classifier  F1: 0.949  AUC: 0.999
+  Regressor  MAE: 6.0 days  R²: 0.8066

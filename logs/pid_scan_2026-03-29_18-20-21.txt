@@ -1,0 +1,68 @@
+Full PID Scan — Safari Storme EX
+Date: 2026-03-29 18:20:21.264558
+
+SUPPORTED:
+  RPM                                      Engine RPM (rpm) = 844.5
+  COOLANT_TEMP                             Engine Coolant Temp (°C) = 42.0
+  ENGINE_LOAD                              Engine Load (%) = 25.882
+  INTAKE_TEMP                              Intake Air Temp (°C) = 32.0
+  MAF                                      Mass Air Flow (g/s) = 11.53
+  ACCELERATOR_POS_D                        Accelerator Pedal D (%) = 0.0
+  ACCELERATOR_POS_E                        Accelerator Pedal E (%) = 0.0
+  SPEED                                    Vehicle Speed (km/h) = 5.0
+  CONTROL_MODULE_VOLTAGE                   Battery Voltage (V) = 14.281
+  FUEL_INJECT_TIMING                       Fuel Injection Timing (°) = -2.125
+  FUEL_RAIL_PRESSURE_DIRECT                Fuel Rail Pressure Direct (kPa) = 25400.0
+  BAROMETRIC_PRESSURE                      Barometric Pressure (kPa) = 94.0
+  COMMANDED_EGR                            Commanded EGR (%) = 53.725
+  DISTANCE_SINCE_DTC_CLEAR                 Distance Since DTC Clear (km) = 60972.0
+  DISTANCE_W_MIL                           Distance With MIL On (km) = 0.0
+  TIME_SINCE_DTC_CLEARED                   Time Since DTC Cleared (min) = 65535.0
+  WARMUPS_SINCE_DTC_CLEAR                  Warmups Since DTC Clear = 255.0
+  GET_DTC                                  Diagnostic Trouble Codes = []
+  FREEZE_DTC                               Freeze Frame DTC = ('P0000', '')
+  STATUS                                   MIL Status = <obd.OBDResponse.Status object at 0x000001B0B4B50D70>
+
+UNSUPPORTED:
+  THROTTLE_POS                             Throttle Position (%) (null response)
+  FUEL_RATE                                Fuel Consumption Rate (L/h) (null response)
+  SHORT_FUEL_TRIM_1                        Short Term Fuel Trim Bank 1 (%) (null response)
+  ABSOLUTE_LOAD                            Absolute Engine Load (%) (null response)
+  COMMANDED_EQUIV_RATIO                    Commanded Equivalence Ratio (null response)
+  OIL_TEMP                                 Engine Oil Temp (°C) (null response)
+  INTAKE_MANIFOLD_PRESSURE                 Intake Manifold Pressure (kPa) (not in obd library)
+  TIMING_ADVANCE                           Timing Advance (°) (null response)
+  THROTTLE_POS_B                           Throttle Position B (%) (null response)
+  THROTTLE_POS_C                           Throttle Position C (%) (null response)
+  ACCELERATOR_POS_F                        Accelerator Pedal F (%) (null response)
+  COMMANDED_THROTTLE_ACTUATOR              Commanded Throttle (%) (not in obd library)
+  ENGINE_RUNTIME                           Engine Runtime (s) (not in obd library)
+  FUEL_LEVEL                               Fuel Level (%) (null response)
+  FUEL_STATUS                              Fuel System Status (null response)
+  FUEL_RAIL_PRESSURE_VAC                   Fuel Rail Pressure Vac (kPa) (null response)
+  FUEL_RAIL_PRESSURE_ABS                   Fuel Rail Pressure Abs (kPa) (null response)
+  LONG_FUEL_TRIM_1                         Long Term Fuel Trim Bank 1 (%) (null response)
+  SHORT_FUEL_TRIM_2                        Short Term Fuel Trim Bank 2 (%) (null response)
+  LONG_FUEL_TRIM_2                         Long Term Fuel Trim Bank 2 (%) (null response)
+  RELATIVE_THROTTLE_POS                    Relative Throttle Position (%) (null response)
+  O2_B1S1                                  O2 Sensor B1S1 (V) (null response)
+  O2_B1S2                                  O2 Sensor B1S2 (V) (null response)
+  O2_B2S1                                  O2 Sensor B2S1 (V) (null response)
+  O2_B2S2                                  O2 Sensor B2S2 (V) (null response)
+  AMBIANT_AIR_TEMP                         Ambient Air Temp OBD (°C) (null response)
+  CATALYST_TEMP_B1S1                       Catalyst Temp B1S1 (°C) (null response)
+  EGR_ERROR                                EGR Error (%) (null response)
+  EVAPORATIVE_PURGE                        Evaporative Purge (%) (null response)
+  ETHANOL_PERCENT                          Ethanol Fuel Percent (%) (null response)
+  MAX_MAF                                  Maximum MAF (g/s) (null response)
+
+CALCULATED SPECS:
+  calc_torque_nm: 63.7
+  calc_power_kw: 5.63
+  calc_power_hp: 7.5
+  calc_fuel_rate_lph: 3.44
+  calc_fuel_l100km: 68.8
+  calc_engine_efficiency_pct: 25.9
+  calc_volumetric_efficiency_pct: 65.0
+  calc_throttle_response: None
+  calc_co2_g_per_km: 1816.3

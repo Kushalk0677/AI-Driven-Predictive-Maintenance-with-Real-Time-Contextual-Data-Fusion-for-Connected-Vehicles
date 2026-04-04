@@ -1,0 +1,3 @@
+service_date,service_type,brake_thickness_after,tire_tread_after,oil_degradation_after,battery_health_after,notes
+2020-02-15,oil_change,,,0.05,,Preventive oil service after first six weeks of urban use
+2020-04-15,full_service,9.0,7.5,0.05,0.92,Major service plus battery replacement before final stretch

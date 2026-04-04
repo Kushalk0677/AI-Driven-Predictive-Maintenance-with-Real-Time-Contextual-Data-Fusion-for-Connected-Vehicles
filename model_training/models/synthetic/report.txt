@@ -1,0 +1,13 @@
+Synthetic Base Model v3 — Service-Event-Aware
+Date: 2026-04-03 19:38:42.899933
+Vehicles: 400  Drives/vehicle: 14  Total samples: 5,600
+Service events simulated: 118 (2.1% of drives)
+Features: 34
+
+Classifier (5-fold CV):
+  F1:  0.969 ± 0.006
+  AUC: 0.995 ± 0.001
+
+Regressor (5-fold CV):
+  MAE: 20.4 ± 0.8 days
+  R²:  0.8069 ± 0.0123

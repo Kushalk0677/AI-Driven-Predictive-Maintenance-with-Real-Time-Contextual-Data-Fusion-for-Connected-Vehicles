@@ -1,0 +1,9 @@
+Car: Toyota_Etios
+Date: 2026-04-03 21:21:05.767628
+Drives: 129  (with service resets: 2)
+Regressor: LightGBM
+days_to_service range: 162 – 361 days
+
+Training metrics (reference):
+  Classifier  F1: 1.000  AUC: 0.500
+  Regressor  MAE: 20.3 days  R²: 0.8480

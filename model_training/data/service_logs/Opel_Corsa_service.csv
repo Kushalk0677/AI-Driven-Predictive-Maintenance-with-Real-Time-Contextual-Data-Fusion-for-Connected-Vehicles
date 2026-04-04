@@ -1,0 +1,5 @@
+service_date,service_type,brake_thickness_after,tire_tread_after,oil_degradation_after,battery_health_after,notes
+2025-06-15,oil_change,,,0.05,,Routine oil change
+2025-08-20,tire_replacement,,7.5,,,Front tires replaced
+2025-09-30,brake_replacement,9.0,,,,Brake pads replaced
+2025-11-15,full_service,9.0,7.5,0.05,,Annual service

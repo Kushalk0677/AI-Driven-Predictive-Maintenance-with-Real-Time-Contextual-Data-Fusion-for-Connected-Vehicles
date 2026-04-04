@@ -1,0 +1,9 @@
+Car: Innova
+Date: 2026-04-04 11:17:27.004724
+Drives: 369  (with service resets: 2)
+Regressor: LightGBM
+days_to_service range: 1 – 325 days
+
+Training metrics (reference):
+  Classifier  F1: 0.991  AUC: 1.000
+  Regressor  MAE: 15.5 days  R²: 0.8193

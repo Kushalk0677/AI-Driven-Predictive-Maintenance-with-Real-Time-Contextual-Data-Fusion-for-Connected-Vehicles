@@ -36,7 +36,7 @@ INTERVAL                = 2.0       # seconds between each full poll cycle
 QUERY_DELAY             = 0.07      # 70ms between each PID query — prevents BT overflow
 CONNECT_WARMUP          = 3.0       # FIX 1: seconds to wait after connect before querying
                                     #        ELM327 needs this time to fully initialise
-OPENWEATHER_API_KEY     = "bd5e378503939ddaee76f12ad7a97608"
+OPENWEATHER_API_KEY     = "ADD"
 WEATHER_INTERVAL        = 60.0
 
 MAX_RECONNECT_ATTEMPTS  = 5

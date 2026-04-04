@@ -17,6 +17,10 @@ This repository provides:
 - **`experiments/`** — Reproducible scripts for all 7 experiments in the paper
 - **`results/`** — Pre-computed results, plots, and CSVs matching the paper
 - **`data/`** — AI4I 2020 benchmark dataset and OBD-II driving datasets
+- **`model_training/`** — service-aware training, fine-tuning, and per-car prediction workflow (v3)
+- **`testing/`** — real-car utilities including live read, logging, replay, comparison, and full PID scan
+- **`logs/`** — sample drive logs, full scans, and PID scan outputs generated from real-car testing
+- **`version_history/`** — archived earlier repo versions (`repo_v1.0.zip`, `repo_v2.0.zip`, `repo_v2.1.zip`)
 
 ### Key Results
 
@@ -29,6 +33,17 @@ This repository provides:
 | Exp 5 — SHAP | 4 contextual/interaction features in top 9 predictors |
 | Exp 6 — Calibration | Platt scaling reduces Brier score: 0.082 → 0.080 |
 | Exp 7 — Regression | LightGBM MAE=2.33 days, R²=0.9949 (simulation only) |
+
+### Important Clarification
+
+- Most predictive models in this repository are trained on **synthetic contextual data**
+- **AI4I 2020** is used as a real benchmark dataset for external validation
+- The real OBD-II datasets and logs support:
+  - feature validation
+  - live system demonstration
+  - logging, replay, and comparison workflows
+  - service-aware per-vehicle training
+- Live prediction examples currently rely on synthetic-trained models unless you retrain on labelled vehicle-specific data
 
 ---
 
@@ -123,20 +138,59 @@ python experiments/exp7_regression.py
 
 Pre-computed results are in `results/` and match the paper exactly.
 
+### Service-aware training workflow (newer applied extension)
+
+The repository also includes a separate **v3 service-aware workflow** under `model_training/`:
+
+```bash
+# Step 1 — train service-aware synthetic base model
+python model_training/train_synthetic_v3.py
+
+# Step 2 — fine-tune one car or all cars
+python model_training/finetune_car_v3.py --list
+python model_training/finetune_car_v3.py --car "Safari Storme EX"
+python model_training/finetune_car_v3.py --all
+
+# Step 3 — predict service need
+python model_training/predict_service_v3.py
+python model_training/predict_service_v3.py --car "Safari Storme EX"
+python model_training/predict_service_v3.py --eval
+```
+
+This v3 workflow adds:
+- service log support
+- wear reset after service events
+- per-car fine-tuning
+- extra output columns such as `service_applied`, `services_done`, and `drive_date`
+
 ---
 
 ## Repository Structure
 
 ```
 ├── vehiclepm/                  # Python library (pip install -e vehiclepm/)
+│   ├── README.md               # Package-specific notes
+│   ├── setup.py
+│   ├── LICENSE
 │   └── vehiclepm/
-│       ├── features/           # Feature engineering (Groups A–D)
-│       ├── models/             # VehiclePMClassifier
-│       ├── evaluation/         # Ablation study, noise sensitivity
-│       ├── interpretability/   # SHAP analysis
-│       ├── calibration/        # Probability calibration
-│       ├── data/               # Synthetic dataset generator
-│       └── obd/                # Live OBD-II reader & predictor
+│       ├── __init__.py
+│       ├── features/
+│       │   └── engineering.py  # Feature engineering (Groups A–D)
+│       ├── models/
+│       │   └── classifier.py   # VehiclePMClassifier
+│       ├── evaluation/
+│       │   ├── ablation.py
+│       │   └── noise.py
+│       ├── interpretability/
+│       │   └── shap_analysis.py
+│       ├── calibration/        # Probability calibration utilities
+│       ├── data/
+│       │   └── synthetic.py    # Synthetic dataset generator
+│       └── obd/
+│           ├── adapter.py
+│           ├── live.py
+│           ├── logger.py
+│           └── reader.py
 │
 ├── experiments/                # Reproducible experiment scripts
 │   ├── exp1_ablation_study.py
@@ -148,12 +202,55 @@ Pre-computed results are in `results/` and match the paper exactly.
 │   └── exp7_regression.py
 │
 ├── results/                    # Pre-computed plots and CSVs
+│   ├── exp1_ablation_results.csv / exp1_ablation_plot.png
+│   ├── exp2_classification_results.csv / exp2_classification_plot.png
+│   ├── exp3_ai4i_results.csv / exp3_ai4i_plot.png / exp3_ai4i_failuremodes.csv / exp3_ai4i_vs_published.csv
+│   ├── exp4_noise_results.csv / exp4_noise_plot.png
+│   ├── exp5_shap_plot.png
+│   ├── exp6_calibration_results.csv / exp6_calibration_plot.png
+│   └── exp7_regression_results.csv / exp7_regression_plot.png
+│
 ├── data/
 │   └── raw/
 │       ├── ai4i2020.csv                    # AI4I 2020 benchmark
+│       ├── exp1_14drivers_14cars_dailyRoutes.csv
 │       ├── exp2_19drivers_1car_1route.csv  # Real OBD-II driving data
 │       └── exp3_4drivers_1car_1route.csv   # Real OBD-II driving data
 │
+├── model_training/             # Newer service-aware per-car workflow (v3)
+│   ├── README.md
+│   ├── train_synthetic_v3.py
+│   ├── finetune_car_v3.py
+│   ├── predict_service_v3.py
+│   ├── service_log_utils.py
+│   ├── data/
+│   │   └── drives/             # Chronological drive CSVs used for fine-tuning
+│   ├── models/
+│   │   ├── synthetic/
+│   │   └── finetuned/
+│   └── results/
+│
+├── testing/                    # Real-car utilities
+│   ├── test_1_find_port.py
+│   ├── test_2_live_read.py
+│   ├── test_3_predict.py
+│   ├── test_4_log_drive.py
+│   ├── test_5_replay_drive.py
+│   ├── test_6_compare_cars.py
+│   ├── test_7_full_scan.py
+│   └── test_7_full_scan_fixed.py
+│
+├── logs/                       # Sample outputs from real-car testing
+│   ├── timestamped drive logs
+│   ├── full_scan_*.csv         # Full PID scan outputs
+│   └── pid_scan_*.txt          # Supported PID scan reports
+│
+├── drive.py                    # Unified CLI for log + replay workflows
+├── vehiclepm_library.zip       # Packaged library snapshot
+├── version_history/
+│   ├── repo_v1.0.zip
+│   ├── repo_v2.0.zip
+│   └── repo_v2.1.zip
 ├── run_all_experiments.py
 ├── requirements.txt
 └── README.md
@@ -167,8 +264,10 @@ Pre-computed results are in `results/` and match the paper exactly.
 |---|---|---|
 | Physics-informed synthetic | 2000 vehicle-month observations, probabilistic labels | Exp 1, 2, 4, 5, 6, 7 |
 | [AI4I 2020](https://archive.ics.uci.edu/dataset/601/) | 10,000 industrial milling machine failures, 5 failure modes | Exp 3 |
-| OBD-II driving (19 drivers) | Real OBD-II signals from instrumented vehicle | Reference |
-| OBD-II driving (4 drivers) | Real OBD-II signals from instrumented vehicle | Reference |
+| OBD-II driving (14 drivers / 14 cars) | Real multi-car daily route dataset | Reference / exploratory data |
+| OBD-II driving (19 drivers / 1 car / 1 route) | Real OBD-II signals from instrumented vehicle | Reference |
+| OBD-II driving (4 drivers / 1 car / 1 route) | Real OBD-II signals from instrumented vehicle | Reference |
+| `model_training/data/drives/` | Chronological drive CSVs used for service-aware per-car training | Applied extension |
 
 ---
 
@@ -279,6 +378,21 @@ After logging drives from multiple cars, shows a side-by-side comparison:
   Creta_2021             18%        45%        89.1°C       89%       0      Aggressive
 ```
 
+### Step 7 — Full PID scan (new)
+```bash
+python testing/test_7_full_scan.py
+python testing/test_7_full_scan_fixed.py
+```
+These scripts scan a much broader PID set and write:
+- full CSV scan outputs to `logs/full_scan_*.csv`
+- PID support reports to `logs/pid_scan_*.txt`
+
+The fixed version adds:
+- warm-up delay after connect
+- per-query delay to reduce ELM327 overflow
+- reconnect handling
+- fast vs slow PID polling tiers
+
 ### Full drive.py usage
 ```bash
 # Log a drive with weather API
@@ -311,5 +425,50 @@ testing/
 ├── test_3_predict.py          ← Live maintenance predictions
 ├── test_4_log_drive.py        ← Log full drive to CSV with weather
 ├── test_5_replay_drive.py     ← Replay a logged drive offline
-└── test_6_compare_cars.py     ← Compare multiple car drives side by side
+├── test_6_compare_cars.py     ← Compare multiple car drives side by side
+├── test_7_full_scan.py        ← Broad full-PID scan
+└── test_7_full_scan_fixed.py  ← Bluetooth-safe / reconnect-aware full scan
 ```
+
+---
+
+## Model Training Folder (v3)
+
+The `model_training/` folder is a newer applied extension focused on **service-aware**
+per-vehicle modelling.
+
+### What it adds beyond the paper scripts
+- wear reset after actual service events
+- service log support from CSV or JSON
+- chronological drive processing
+- per-car fine-tuning
+- extra columns such as `service_applied`, `services_done`, and `drive_date`
+
+### Main files
+
+```text
+model_training/
+├── train_synthetic_v3.py   # Train the service-aware synthetic base model
+├── finetune_car_v3.py      # Fine-tune one or more cars
+├── predict_service_v3.py   # Run service prediction
+├── service_log_utils.py    # Shared service-log helpers
+└── README.md               # Detailed usage and service-log format
+```
+
+### Expected data layout
+
+- `model_training/data/drives/` contains drive CSVs named with `YYYY-MM-DD_` prefixes
+- `model_training/data/service_logs/` can contain per-car or fleet-wide service logs
+- `model_training/models/` stores synthetic and fine-tuned models
+- `model_training/results/` stores prediction outputs
+
+---
+
+## Versioned Artifacts
+
+- `vehiclepm_library.zip` — packaged library snapshot
+- `version_history/repo_v1.0.zip`
+- `version_history/repo_v2.0.zip`
+- `version_history/repo_v2.1.zip`
+
+These are useful for tracing the repo's earlier packaged states and comparing evolution across versions.

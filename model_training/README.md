@@ -13,6 +13,7 @@ model had no way to know about it.
 **v3 adds service log support.** Drop a CSV (or JSON) in `data/service_logs/`
 for each car. When the wear accumulator reaches that date, it resets the relevant
 components and the predicted days correctly recover.
+Service events were owner-recorded in an informal maintenance context.
 
 ### Key changes
 | | v2 | v3 |

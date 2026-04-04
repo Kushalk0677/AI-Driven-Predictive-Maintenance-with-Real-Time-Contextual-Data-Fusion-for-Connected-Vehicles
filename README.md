@@ -229,6 +229,8 @@ This v3 workflow adds:
 │   │   ├── synthetic/
 │   │   └── finetuned/
 │   └── results/
+│       ├── synthetic/
+│       └── finetuned/
 │
 ├── testing/                    # Real-car utilities
 │   ├── test_1_find_port.py

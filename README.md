@@ -1,12 +1,17 @@
 # AI-Driven Predictive Maintenance with Real-Time Contextual Data Fusion for Connected Vehicles
 
 [![arXiv](https://img.shields.io/badge/arXiv-2603.13343-b31b1b.svg)](https://arxiv.org/abs/2603.13343)
+[![Published in Discover Vehicles](https://img.shields.io/badge/Discover%20Vehicles-10.1007%2Fs44465--026--00023--2-1f6f8b.svg)](https://doi.org/10.1007/s44465-026-00023-2)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](vehiclepm/LICENSE)
 
 Official code, data, and results for:
 
-> **Khemani, K. & Qureshi, A.N. (2026).** *AI-Driven Predictive Maintenance with Real-Time Contextual Data Fusion for Connected Vehicles: A Multi-Dataset Evaluation.* arXiv:2603.13343
+> **Khemani, K. & Qureshi, A.N. (2026).** *AI-driven predictive maintenance for connected vehicles using environmental context integration evaluated through simulation benchmarking and field validation.* **Discover Vehicles, 2**, Article 19. [https://doi.org/10.1007/s44465-026-00023-2](https://doi.org/10.1007/s44465-026-00023-2)
+
+**Version of record:** Published 21 June 2026 in [Discover Vehicles](https://link.springer.com/article/10.1007/s44465-026-00023-2).
+
+**Publication history:** Received 4 April 2026 · Revised 12 June 2026 · Accepted 16 June 2026 · Published 21 June 2026
 
 ---
 
@@ -275,14 +280,20 @@ This v3 workflow adds:
 
 ## Citation
 
+Khemani, K., Qureshi, A.N. AI-driven predictive maintenance for connected vehicles using environmental context integration evaluated through simulation benchmarking and field validation. *Discover Vehicles* **2**, 19 (2026). [https://doi.org/10.1007/s44465-026-00023-2](https://doi.org/10.1007/s44465-026-00023-2)
+
 ```bibtex
 @article{khemani2026vehiclepm,
-  title   = {AI-Driven Predictive Maintenance with Real-Time Contextual Data
-             Fusion for Connected Vehicles: A Multi-Dataset Evaluation},
+  title   = {AI-driven predictive maintenance for connected vehicles using
+             environmental context integration evaluated through simulation
+             benchmarking and field validation},
   author  = {Khemani, Kushal and Qureshi, Anjum Nazir},
-  journal = {arXiv preprint arXiv:2603.13343},
+  journal = {Discover Vehicles},
+  volume  = {2},
+  pages   = {19},
   year    = {2026},
-  url     = {https://arxiv.org/abs/2603.13343}
+  doi     = {10.1007/s44465-026-00023-2},
+  url     = {https://doi.org/10.1007/s44465-026-00023-2}
 }
 ```
 
